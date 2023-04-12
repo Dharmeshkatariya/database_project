@@ -1,7 +1,9 @@
+import 'package:floordatabaseflutter/screen/editproduct.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ProductList extends StatelessWidget {
+class ProductList extends GetView {
   const ProductList({Key? key}) : super(key: key);
 
   @override
@@ -20,7 +22,11 @@ class ProductList extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(EditProduct(
+            isEdit: false,
+          ));
+        },
         child: const Icon(Icons.add),
       ),
       body: Container(

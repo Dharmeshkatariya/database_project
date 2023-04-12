@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import 'database.dart';
 import 'modal/card.dart';
@@ -68,7 +70,47 @@ class Common {
     return res;
   }
 
-  Widget _button() {
-    return GestureDetector(onTap: () {}, child: Container());
+  static Widget button({required String text,GestureTapCallback? onTap}) {
+    return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+          child: Text(
+            text,
+            style:const  TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Colors.white),
+          ),
+        ));
+  }
+
+ static Widget textField(
+      {String? text,
+      TextEditingController? controller,
+      dynamic validator,
+      TextInputType? keyboardType}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: TextFormField(
+        keyboardType: keyboardType,
+        validator: validator,
+        controller: controller,
+        decoration: InputDecoration(
+            fillColor: Colors.white,
+            filled: true,
+            hintText: text,
+            labelText: text,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+            )),
+      ),
+    );
   }
 }

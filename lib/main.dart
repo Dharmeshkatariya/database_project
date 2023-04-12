@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -50,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _listScreen() async {
     await Common().initDatabase();
     Timer.periodic(const Duration(seconds: 3), (timer) {
-      Get.to(() => ProductList());
+      Get.off(() => ProductList());
       timer.cancel();
     });
   }
