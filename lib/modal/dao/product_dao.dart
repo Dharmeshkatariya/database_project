@@ -1,5 +1,5 @@
 import 'package:floor/floor.dart';
-import 'package:floordatabaseflutter/modal/product.dart';
+import 'package:floordatabaseflutter/modal/entity/product.dart';
 
 @dao
 abstract class ProductDao {

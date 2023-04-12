@@ -5,12 +5,12 @@ import 'dart:async';
 import 'package:floor/floor.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 
-import 'modal/card.dart';
-import 'modal/card_dao.dart';
-import 'modal/person.dart';
-import 'modal/persondao.dart';
-import 'modal/product.dart';
-import 'modal/product_dao.dart';
+import 'modal/entity/card.dart';
+import 'modal/dao/card_dao.dart';
+import 'modal/entity/person.dart';
+import 'modal/dao/person_dao.dart';
+import 'modal/entity/product.dart';
+import 'modal/dao/product_dao.dart';
 
 part 'database.g.dart'; // the generated code will be there
 

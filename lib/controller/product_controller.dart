@@ -1,10 +1,10 @@
+import 'package:floordatabaseflutter/controller/productadd_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../common.dart';
+import '../modal/entity/product.dart';
 
-import '../modal/product.dart';
-
-class ProductController extends GetxController {
-
+class AddProductController extends GetxController {
   final nameController = TextEditingController();
   final priceController = TextEditingController();
   final discountController = TextEditingController();
@@ -13,7 +13,6 @@ class ProductController extends GetxController {
   final form = GlobalKey<FormState>();
 
   bool isEdit = false;
-
 
   setData(bool isEdit, Product? product) {
     this.isEdit = isEdit;
@@ -26,6 +25,36 @@ class ProductController extends GetxController {
     }
   }
 
+  addProduct() async {
+   try{
+     Product product = Product(
+         Common().getRandomId(),
+         nameController.text,
+         descController.text,
+         double.parse(priceController.text),
+         int.parse(qtyController.text),
+         double.parse(discountController.text));
+     await Common().insertData(product);
+     ProductController productController = Get.find();
+     productController.getProductData();
+     Get.back();
+   }catch(e){
+     print(e);
+   }
+  }
+  updateProduct(Product Products) async {
+    Product product = Product(
+        Products.id,
+        nameController.text,
+        descController.text,
+        double.parse(priceController.text),
+        int.parse(qtyController.text),
+        double.parse(discountController.text));
+    await Common().updateProduct(product);
+    ProductController productController = Get.find();
+    productController.getProductData();
+    Get.back();
+  }
 
   @override
   void dispose() {

@@ -1,7 +1,7 @@
 // dao/person_dao.dart
 
 import 'package:floor/floor.dart';
-import 'package:floordatabaseflutter/modal/person.dart';
+import 'package:floordatabaseflutter/modal/entity/person.dart';
 
 @dao
 abstract class PersonDao {

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:floordatabaseflutter/productlist.dart';
+import 'package:floordatabaseflutter/screen/productlist.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -14,7 +15,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -42,14 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     _listScreen();
-
     super.initState();
   }
 
   _listScreen() async {
     await Common().initDatabase();
     Timer.periodic(const Duration(seconds: 3), (timer) {
-      Get.off(() => ProductList());
+      Get.off(ProductList());
       timer.cancel();
     });
   }
@@ -57,10 +56,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-        child: const Text('Splash Screen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Product Data ',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -5,17 +5,18 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../controller/product_controller.dart';
-import '../modal/product.dart';
+import '../modal/entity/product.dart';
 
 class EditProduct extends StatelessWidget{
   EditProduct({super.key, this.product, required this.isEdit});
 
   final Product? product;
   final bool isEdit;
-  final _addProductController = Get.put(ProductController());
+  final _addProductController = Get.put(AddProductController());
 
   @override
   Widget build(BuildContext context) {
+    _addProductController.setData(isEdit, product);
     return Scaffold(
      appBar:  AppBar(
        centerTitle: true,
@@ -75,7 +76,29 @@ class EditProduct extends StatelessWidget{
                     text: "Description",
                     keyboardType: TextInputType.name,
                     controller: _addProductController.descController),
-              Common.button(text: "ADD"),
+                GestureDetector(
+                  onTap: () {
+                    if (_addProductController.form.currentState!.validate()) {
+                      isEdit? _addProductController.updateProduct(product!): _addProductController.addProduct();
+                    }
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 40),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 60),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      isEdit ? "Update" : "Add",
+                      style:const  TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -2,11 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import 'database.dart';
-import 'modal/card.dart';
-import 'modal/product.dart';
+import 'modal/entity/card.dart';
+import 'modal/entity/product.dart';
 
 class Common {
   static String productDetail = '/product_detail';
