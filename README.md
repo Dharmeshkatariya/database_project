@@ -33,5 +33,22 @@ Implement a search feature for products
 Allow users to sort products by various criteria (e.g. price, name, etc.)
 Add unit and integration tests for the app
 
-
+## Website Preview 
+ 
+  
+ 
+  
+ ## Features 📋 
+ ⚡️ Fully Responsive 
+ ⚡️ Easy to modify 
+ ⚡️ Attractive UI/UX 
+  
+ ## Sections 📚 
+ ✔️ Personal Details \ 
+ ✔️ Professional Details\ 
+ ✔️ Social Link\ 
+ ✔️ Profile Summary\ 
+ ✔️ Generate Resume 
+  
+ 
 
